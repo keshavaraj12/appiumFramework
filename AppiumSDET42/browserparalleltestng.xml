@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Suite"  thread-count="5">
+  <test name="Test1">
+  <parameter name="devicename" value="Samsung Galaxy S22 Ultra"></parameter>
+  <parameter name="platformversion" value="12.0"></parameter>
+  <classes>
+  <class name="drivermethods.BrowserStackParallel"/>
+  </classes>
+  </test> <!-- Test -->
+  
+   <test name="Test2">
+  <parameter name="devicename" value="Vivo Y21"></parameter>
+  <parameter name="platformversion" value="11.0"></parameter>
+  <classes>
+  <class name="drivermethods.BrowserStackParallel"/>
+  </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

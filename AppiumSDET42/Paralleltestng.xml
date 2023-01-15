@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Suite" thread-count="5">
+
+  <test name="Test1">
+  <parameter name="UDID" value="QKB6DQOJNZDIYDA6"></parameter>
+  <parameter name="port" value="4722"></parameter>
+  <classes>
+  <class name="drivermethods.ParallelExecution"/>
+  </classes>
+  </test>
+  
+  <test  name="Test2">
+  <parameter name="UDID" value="220b6806"></parameter>
+  <parameter name="port" value="4723"></parameter>
+  <classes>
+  <class name="drivermethods.ParallelExecution"/>
+  </classes>
+  </test> <!-- Test -->
+  
+</suite> <!-- Suite -->
