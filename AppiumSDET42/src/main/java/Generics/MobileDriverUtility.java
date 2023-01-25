@@ -2,6 +2,7 @@ package Generics;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -37,11 +38,15 @@ public void dragandrop(MobileElement src,MobileElement dest) {
 	tc.longPress(src).waitAction().moveTo(dest).perform().release();
 }	
 
-public void takeScreenshot(WebDriver driver,String screenshotname) throws IOException {
-	TakesScreenshot ts=(TakesScreenshot) driver;
-	File src = ts.getScreenshotAs(OutputType.FILE);
-	File dest=new File("./Screenshot"+screenshotname+".png");
-	FileUtils.copyFile(src, dest);
+public String takeScreenshot(AndroidDriver driver,String result) throws IOException {
+String timeStamp = LocalDateTime.now().toString().replace(':', '-');
+String testname = result;
+TakesScreenshot sc=(TakesScreenshot) driver;
+File srcfile=sc.getScreenshotAs(OutputType.FILE);
+File destfile=new File("./ScreenShots/"+timeStamp+testname+" .png");
+FileUtils.copyFile(srcfile, destfile);
+return timeStamp;
+
 }
 
 }

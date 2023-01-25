@@ -10,9 +10,11 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import io.appium.java_client.android.AndroidDriver;
+
 public class Listeners implements ITestListener{
 
-
+AndroidDriver pdriver;
 public void onTestStart(ITestResult result) {
 		
 	}
@@ -25,7 +27,6 @@ public void onTestStart(ITestResult result) {
 		String timeStamp = LocalDateTime.now().toString().replace(':', '-');
 		String testname = result.getMethod().getMethodName();
 		System.out.println(testname+"Take ScreenShot");	
-		EventFiringWebDriver pdriver=new EventFiringWebDriver(BaseClass.sdriver);
 		File srcfile=pdriver.getScreenshotAs(OutputType.FILE);
 		try {
 			File destfile=new File("./ScreenShots/"+timeStamp+"+"+testname+".png");

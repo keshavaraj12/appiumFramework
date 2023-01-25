@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Generics.BaseClass;
@@ -19,6 +20,7 @@ public class GeneralstoreLoginTest extends BaseClass {
 	LoginGeneralStore lg=new LoginGeneralStore(driver);
 	Thread.sleep(2000);
 	lg.loginpage("raju");
+	//Assert.fail();
 	
 	}
 }

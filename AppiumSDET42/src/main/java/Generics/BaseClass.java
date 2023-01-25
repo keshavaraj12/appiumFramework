@@ -41,8 +41,6 @@ public class BaseClass {
     public static String ServerAddress="0.0.0.0";
     
 	public AndroidDriver driver;
-	public static  AndroidDriver sdriver;
-	public static WebDriver sDriver;
 	public static ExtentReports report;
 	public static ExtentTest test;
 
@@ -51,7 +49,7 @@ public class BaseClass {
 public void data() {
 	System.out.println("database connection");
 	String timeStamp = LocalDateTime.now().toString().replace(':', '-');
-    ExtentHtmlReporter htmlReport=new ExtentHtmlReporter(new File("./ExtentReport/report ["+timeStamp+"] .html"));		
+    ExtentHtmlReporter htmlReport=new ExtentHtmlReporter(new File("./ExtentReport/report["+timeStamp+"].html"));		
     htmlReport.config().setDocumentTitle("Extent Report");
     htmlReport.config().setTheme(Theme.STANDARD);
     htmlReport.config().setReportName("Functional Test");
@@ -59,7 +57,7 @@ public void data() {
     report=new ExtentReports();
     report.attachReporter(htmlReport);
     report.setSystemInfo("Platform", "Android");
-    report.setSystemInfo("Reporter Name", "keshav");
+    report.setSystemInfo("Reporter Name", "keshava");
 }
 
 @BeforeTest
@@ -88,8 +86,8 @@ public void openApp(ITestResult result) throws Throwable {
 	String devicename = file.propertyfile("deviceName");
 	String deviceid = file.propertyfile("deviceId");
 	String automationname = file.propertyfile("automationName");
-	String apppackage = file.propertyfile("appPackage1");
-	String appactivity = file.propertyfile("appActivity1");
+	String apppackage = file.propertyfile("appPackage");
+	String appactivity = file.propertyfile("appActivity");
 	
 	DesiredCapabilities dc=new DesiredCapabilities();
 	dc.setCapability(MobileCapabilityType.PLATFORM_NAME, platformname);
@@ -109,36 +107,21 @@ public void openApp(ITestResult result) throws Throwable {
 	test.log(Status.INFO, result.getMethod().getMethodName());
 }
 
+MobileDriverUtility mdu =new MobileDriverUtility();
+
 @AfterMethod
 public void closeapp(ITestResult result) throws IOException {
 	if(result.getStatus()==ITestResult.FAILURE) {
 		System.out.println("Take Screenshot "+result.getMethod().getMethodName());
 		test.log(Status.FAIL, result.getMethod().getMethodName()+" is failed");
         test.log(Status.FAIL, result.getThrowable());
-//		try {
-//			String path = webLibrary.takeScreenshot(BaseClassForExtent.sDriver,result.getMethod().getMethodName());
-//			test.addScreenCaptureFromPath(path);
-//		} catch (Throwable e) {
-//			e.printStackTrace();
-//		}
-        String timeStamp = LocalDateTime.now().toString().replace(':', '-');
-//		String testname = result.getMethod().getMethodName();
-//		System.out.println(testname+" Take ScreenShot");	
-//		EventFiringWebDriver pdriver=new EventFiringWebDriver(driver);
-//		File srcfile=pdriver.getScreenshotAs(OutputType.FILE);
-//		try {
-//			File destfile=new File("./ScreenShots/"+timeStamp+"+"+testname+" .png");
-//			FileUtils.copyFile(srcfile, destfile);
-//		} catch (Throwable e) {
-//			e.printStackTrace();
-//		} 
-		
-		TakesScreenshot ts = (TakesScreenshot)driver;
-		 File tempFile = ts.getScreenshotAs(OutputType.FILE);
-		System.out.println(tempFile.getAbsolutePath());
-		File destinationFile = new File("./errorshots/"+timeStamp+"/.png");
-		FileUtils.copyFile(tempFile,destinationFile );
-		
+		try {
+			String path = mdu.takeScreenshot(driver, result.getMethod().getMethodName());
+			test.addScreenCaptureFromPath(path);
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
+				
 	}
 	else if(result.getStatus()==ITestResult.SUCCESS) {
 		test.log(Status.PASS, result.getMethod().getMethodName()+" is passed");
@@ -147,10 +130,6 @@ public void closeapp(ITestResult result) throws IOException {
 		test.log(Status.SKIP, result.getMethod().getMethodName()+" is skipped");				
 	    test.log(Status.SKIP, result.getThrowable());
 	}
-	
-	
-	
-	
 	
 	System.out.println("Close app");
 	driver.closeApp();

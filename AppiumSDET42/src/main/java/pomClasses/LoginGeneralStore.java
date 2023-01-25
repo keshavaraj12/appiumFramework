@@ -1,7 +1,10 @@
 package pomClasses;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
@@ -10,38 +13,38 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class LoginGeneralStore {
 	
-	private AndroidDriver<AndroidElement> driver;
+	private AppiumDriver driver;
 	
-	public LoginGeneralStore(AndroidDriver driver) {
+	public LoginGeneralStore(AppiumDriver driver) {
 		this.driver=driver;
-		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+		PageFactory.initElements(driver, this);
 	}
 
-	@AndroidFindBy(id="com.androidsample.generalstore:id/nameField")
-	private MobileElement usernametextfield;
+	@FindBy(id="com.androidsample.generalstore:id/nameField")
+	private WebElement usernametextfield;
 	
-	@AndroidFindBy(id="com.androidsample.generalstore:id/radioMale")
-	private MobileElement maleradiobutton;
+	@FindBy(id="com.androidsample.generalstore:id/radioMale")
+	private WebElement maleradiobutton;
 	
-	@AndroidFindBy(id="com.androidsample.generalstore:id/radioFemale")
-	private MobileElement femaleradiobutton;
+	@FindBy(id="com.androidsample.generalstore:id/radioFemale")
+	private WebElement femaleradiobutton;
 	
-	@AndroidFindBy(id="com.androidsample.generalstore:id/btnLetsShop")
-	private MobileElement letsshopbutton;
+	@FindBy(id="com.androidsample.generalstore:id/btnLetsShop")
+	private WebElement letsshopbutton;
 
-	public MobileElement getUsernametextfield() {
+	public WebElement getUsernametextfield() {
 		return usernametextfield;
 	}
 
-	public MobileElement getMaleradiobutton() {
+	public WebElement getMaleradiobutton() {
 		return maleradiobutton;
 	}
 
-	public MobileElement getFemaleradiobutton() {
+	public WebElement getFemaleradiobutton() {
 		return femaleradiobutton;
 	}
 
-	public MobileElement getLetsshopbutton() {
+	public WebElement getLetsshopbutton() {
 		return letsshopbutton;
 	}
 	

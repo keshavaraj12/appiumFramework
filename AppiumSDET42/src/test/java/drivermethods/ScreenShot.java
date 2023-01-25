@@ -37,10 +37,10 @@ public class ScreenShot {
 	String value = driver.findElementByXPath("//android.widget.Toast[1]").getText();
 	System.out.println(value);
 	
-	//SoftAssert sf=new SoftAssert();
-	//sf.assertTrue(false);
+	SoftAssert sf=new SoftAssert();
+	sf.assertTrue(false);
 	
-	Assert.assertTrue(false);
+	//Assert.assertTrue(false);
 	
 	String timeStamp = LocalDateTime.now().toString().replace(':', '-');
 	TakesScreenshot ts = (TakesScreenshot)driver;
@@ -48,7 +48,7 @@ public class ScreenShot {
 	File destinationFile = new File("./Screenshots/failure/"+timeStamp+".png");
 	FileUtils.copyFile(tempFile,destinationFile );
 	
-	//sf.assertAll();
+	sf.assertAll();
 
 	}
 }

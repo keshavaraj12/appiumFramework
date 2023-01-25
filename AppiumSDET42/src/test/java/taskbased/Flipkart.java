@@ -2,20 +2,19 @@ package taskbased;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Test;
 
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.SwipeElementDirection;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 
 public class Flipkart {
@@ -42,8 +41,13 @@ public void flikarttests() throws MalformedURLException, InterruptedException{
 	Thread.sleep(2000);
 	driver.hideKeyboard();
 	Thread.sleep(1000);
+	List<WebElement> list = driver.findElementsByXPath("//android.widget.TextView[contains(@text,'iphone')]");
+	for (int i = 0; i <list.size(); i++) {
+		System.out.println(list.get(i).getText());
+		Thread.sleep(2000);
+	}
+	Thread.sleep(3000);
 	driver.findElementByXPath("//android.widget.TextView[@text='iphone 14 pro']").click();
-	
 	TouchAction tc=new TouchAction(driver);
 	for (int i = 0; i <6; i++) {
 		List<MobileElement> text = (List<MobileElement>) driver.findElementsByXPath("//android.widget.TextView[contains(@text,'APPLE') or contains(@text,'GB')]");
@@ -51,8 +55,11 @@ public void flikarttests() throws MalformedURLException, InterruptedException{
 	for (int j = 0; j <text.size(); j++) {
 		System.out.println(text.get(j).getText()+"-->"+price.get(j).getText().replace('₹', ' '));
 					}
+	
 	tc.longPress(100, 1200,100).moveTo(100, 120).release().perform();
 	}
 	
+	Thread.sleep(2000);
+	driver.closeApp();
 }
 }
