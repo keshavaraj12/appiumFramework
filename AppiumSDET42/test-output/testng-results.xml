@@ -2,16 +2,62 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-25T15:31:18 IST" name="Default suite" finished-at="2023-01-25T15:32:21 IST" duration-ms="62623">
+  <suite started-at="2023-01-25T22:22:57 IST" name="Default suite" finished-at="2023-01-25T22:23:23 IST" duration-ms="25483">
     <groups>
     </groups>
-    <test started-at="2023-01-25T15:31:18 IST" name="Default test" finished-at="2023-01-25T15:32:21 IST" duration-ms="62623">
-      <class name="taskbased.SwitchToNativeAppToWebApp">
-        <test-method signature="webapp()[pri:0, instance:taskbased.SwitchToNativeAppToWebApp@710c2b53]" started-at="2023-01-25T15:31:18 IST" name="webapp" finished-at="2023-01-25T15:32:21 IST" duration-ms="62590" status="PASS">
+    <test started-at="2023-01-25T22:22:57 IST" name="Default test" finished-at="2023-01-25T22:23:23 IST" duration-ms="25483">
+      <class name="generalstore.GeneralstoreLoginTest">
+        <test-method is-config="true" signature="data()[pri:0, instance:generalstore.GeneralstoreLoginTest@3feb2dda]" started-at="2023-01-25T22:22:57 IST" name="data" finished-at="2023-01-25T22:22:57 IST" duration-ms="146" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- webapp -->
-      </class> <!-- taskbased.SwitchToNativeAppToWebApp -->
+        </test-method> <!-- data -->
+        <test-method is-config="true" signature="parallel()[pri:0, instance:generalstore.GeneralstoreLoginTest@3feb2dda]" started-at="2023-01-25T22:22:57 IST" name="parallel" finished-at="2023-01-25T22:22:57 IST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- parallel -->
+        <test-method is-config="true" signature="startserver()[pri:0, instance:generalstore.GeneralstoreLoginTest@3feb2dda]" started-at="2023-01-25T22:22:57 IST" name="startserver" finished-at="2023-01-25T22:22:59 IST" duration-ms="1862" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startserver -->
+        <test-method is-config="true" signature="openApp(org.testng.ITestResult)[pri:0, instance:generalstore.GeneralstoreLoginTest@3feb2dda]" started-at="2023-01-25T22:22:59 IST" name="openApp" finished-at="2023-01-25T22:23:15 IST" duration-ms="16297" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name={null} status=CREATED method=GeneralstoreLoginTest.LoginTest()[pri:0, instance:generalstore.GeneralstoreLoginTest@3feb2dda] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openApp -->
+        <test-method signature="LoginTest()[pri:0, instance:generalstore.GeneralstoreLoginTest@3feb2dda]" started-at="2023-01-25T22:23:15 IST" name="LoginTest" finished-at="2023-01-25T22:23:22 IST" duration-ms="6903" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginTest -->
+        <test-method is-config="true" signature="closeapp(org.testng.ITestResult)[pri:0, instance:generalstore.GeneralstoreLoginTest@3feb2dda]" started-at="2023-01-25T22:23:22 IST" name="closeapp" finished-at="2023-01-25T22:23:23 IST" duration-ms="252" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=LoginTest status=SUCCESS method=GeneralstoreLoginTest.LoginTest()[pri:0, instance:generalstore.GeneralstoreLoginTest@3feb2dda] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeapp -->
+        <test-method is-config="true" signature="stopserver()[pri:0, instance:generalstore.GeneralstoreLoginTest@3feb2dda]" started-at="2023-01-25T22:23:23 IST" name="stopserver" finished-at="2023-01-25T22:23:23 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- stopserver -->
+        <test-method is-config="true" signature="parallelclose()[pri:0, instance:generalstore.GeneralstoreLoginTest@3feb2dda]" started-at="2023-01-25T22:23:23 IST" name="parallelclose" finished-at="2023-01-25T22:23:23 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- parallelclose -->
+        <test-method is-config="true" signature="closedata()[pri:0, instance:generalstore.GeneralstoreLoginTest@3feb2dda]" started-at="2023-01-25T22:23:23 IST" name="closedata" finished-at="2023-01-25T22:23:23 IST" duration-ms="268" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closedata -->
+      </class> <!-- generalstore.GeneralstoreLoginTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -33,7 +33,7 @@ public class AppiumSerever {
 		service=AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
     			.usingDriverExecutable(new File(NodeEXePath)).withAppiumJS(new File(NodeJsMainPath))
     			.withIPAddress(ServerAddress)
-    			.withArgument(GeneralServerFlag.CONFIGURATION_FILE ,"wd/hub").usingPort(4723).withLogFile(new File("C:\\Users\\HP\\Desktop\\AppiumLogs\\AppiumServer Log file.txt")));
+    			.withArgument(GeneralServerFlag.CONFIGURATION_FILE ,"wd/hub").usingPort(4723).withLogFile(new File("./AppiumLogs/AppiumServer Log file.txt")));
 		service.start();
 		System.out.println("Appium server started");
 		
