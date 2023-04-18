@@ -39,6 +39,7 @@ public class BaseClass {
     public static String NodeEXePath="C:\\Program Files\\nodejs\\node.exe";
     public static String NodeJsMainPath="C:\\Users\\HP\\AppData\\Local\\Programs\\Appium Server GUI\\resources\\app\\node_modules\\appium\\build\\lib\\main.js";
     public static String ServerAddress="0.0.0.0";
+    public int portNumber=4723;
     
 	public AndroidDriver driver;
 	public static ExtentReports report;
@@ -72,7 +73,7 @@ public void startserver() {
 	service=AppiumDriverLocalService.buildService(new AppiumServiceBuilder()
 			.usingDriverExecutable(new File(NodeEXePath)).withAppiumJS(new File(NodeJsMainPath))
 			.withIPAddress(ServerAddress)
-			.withArgument(GeneralServerFlag.CONFIGURATION_FILE ,"wd/hub").usingPort(4723).withLogFile(new File("./AppiumLogs/AppiumServer Log file "+datetime+".txt")));
+			.withArgument(GeneralServerFlag.CONFIGURATION_FILE ,"wd/hub").usingPort(portNumber).withLogFile(new File("./AppiumLogs/AppiumServer Log file "+datetime+".txt")));
 
 			service.start();			
 }
@@ -99,7 +100,7 @@ public void openApp(ITestResult result) throws Throwable {
 	dc.setCapability("appActivity",appactivity );
 	dc.setCapability("noReset", true);
 	
-	URL url=new URL("http://localhost:4723/wd/hub");
+	URL url=new URL("http://localhost:"+portNumber+"/wd/hub");
 	driver=new AndroidDriver(url, dc);
 	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	
@@ -110,7 +111,7 @@ public void openApp(ITestResult result) throws Throwable {
 MobileDriverUtility mdu =new MobileDriverUtility();
 
 @AfterMethod
-public void closeapp(ITestResult result) throws IOException {
+public void closeapp(ITestResult result){
 	if(result.getStatus()==ITestResult.FAILURE) {
 		System.out.println("Take Screenshot "+result.getMethod().getMethodName());
 		test.log(Status.FAIL, result.getMethod().getMethodName()+" is failed");

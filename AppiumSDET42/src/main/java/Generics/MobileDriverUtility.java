@@ -45,7 +45,7 @@ TakesScreenshot sc=(TakesScreenshot) driver;
 File srcfile=sc.getScreenshotAs(OutputType.FILE);
 File destfile=new File("./ScreenShots/"+timeStamp+testname+" .png");
 FileUtils.copyFile(srcfile, destfile);
-return timeStamp;
+return destfile.getAbsolutePath();
 
 }
 

@@ -3,11 +3,19 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="taskbased.SwitchToNativeAppToWebApp">
+      <class name="generalstore.GeneralstoreLoginTest">
         <methods>
-          <include name="webapp"/>
+          <include name="closeapp"/>
+          <include name="LoginTest"/>
+          <include name="closedata"/>
+          <include name="parallel"/>
+          <include name="startserver"/>
+          <include name="parallelclose"/>
+          <include name="stopserver"/>
+          <include name="data"/>
+          <include name="openApp"/>
         </methods>
-      </class> <!-- taskbased.SwitchToNativeAppToWebApp -->
+      </class> <!-- generalstore.GeneralstoreLoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -20,7 +20,7 @@ public class GeneralstoreLoginTest extends BaseClass {
 	LoginGeneralStore lg=new LoginGeneralStore(driver);
 	Thread.sleep(2000);
 	lg.loginpage("raju");
-	Assert.fail();
+	//Assert.fail();
 	
 	}
 }

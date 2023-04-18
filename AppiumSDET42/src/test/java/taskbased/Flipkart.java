@@ -44,22 +44,21 @@ public void flikarttests() throws MalformedURLException, InterruptedException{
 	List<WebElement> list = driver.findElementsByXPath("//android.widget.TextView[contains(@text,'iphone')]");
 	for (int i = 0; i <list.size(); i++) {
 		System.out.println(list.get(i).getText());
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 	}
 	Thread.sleep(3000);
 	driver.findElementByXPath("//android.widget.TextView[@text='iphone 14 pro']").click();
 	TouchAction tc=new TouchAction(driver);
-	for (int i = 0; i <6; i++) {
+	
+	for(;;) {
 		List<MobileElement> text = (List<MobileElement>) driver.findElementsByXPath("//android.widget.TextView[contains(@text,'APPLE') or contains(@text,'GB')]");
 		List<MobileElement> price = (List<MobileElement>) driver.findElementsByXPath("//android.widget.TextView[contains(@text,'₹')]");
 	for (int j = 0; j <text.size(); j++) {
 		System.out.println(text.get(j).getText()+"-->"+price.get(j).getText().replace('₹', ' '));
 					}
-	
 	tc.longPress(100, 1200,100).moveTo(100, 120).release().perform();
-	}
+		}
 	
-	Thread.sleep(2000);
-	driver.closeApp();
+	//driver.closeApp();
 }
 }

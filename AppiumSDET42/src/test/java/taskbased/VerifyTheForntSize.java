@@ -35,9 +35,10 @@ public class VerifyTheForntSize {
 		AndroidDriver driver=new AndroidDriver(url, dc);		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
-		 WebElement intialelement = driver.findElementByXPath("//android.widget.TextView[@text='Brand Mall']");
-		 Dimension firstfornt = intialelement.getSize();
-		 System.out.println(firstfornt);
+		 WebElement intialelement = driver.findElementByXPath("//android.widget.TextView[@text='Search for products']");
+		 Thread.sleep(3000);
+		 Dimension firstfont = intialelement.getSize();
+		 System.out.println(firstfont);
 		 
 		driver.startActivity("com.android.settings", ".Settings$DisplaySettingsActivity");
 		driver.findElementByXPath("//android.widget.TextView[@text='Font size']").click();
@@ -47,17 +48,17 @@ public class VerifyTheForntSize {
 		Thread.sleep(2000);
 			
 		driver.startActivity("com.flipkart.android", ".activity.HomeFragmentHolderActivity");
-		WebElement finalelement = driver.findElementByXPath("//android.widget.TextView[@text='Brand Mall']");
-		Dimension secondfornt = finalelement.getSize();
-		System.out.println(secondfornt);
-		Assert.assertNotEquals(firstfornt, secondfornt);
+		WebElement finalelement = driver.findElementByXPath("//android.widget.TextView[@text='Search for products']");
+		Dimension secondfont = finalelement.getSize();
+		System.out.println(secondfont);
+		Thread.sleep(3000);
+		Assert.assertNotEquals(firstfont, secondfont);
 		
 		driver.startActivity("com.android.settings", ".Settings$DisplaySettingsActivity");
 		driver.findElementByXPath("//android.widget.TextView[@text='Font size']").click();
 		Thread.sleep(3000);
 		driver.tap(1, 282, 860, 300);
 		
-		Thread.sleep(2000);
-		driver.closeApp();
+		driver.quit();
 	}
 }

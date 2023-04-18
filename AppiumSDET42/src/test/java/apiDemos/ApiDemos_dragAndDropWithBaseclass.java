@@ -21,18 +21,6 @@ public void draganddropTest() throws InterruptedException {
 	action.longPress(src).moveTo(dst).release().perform();
 	Thread.sleep(500);
 	
-//	driver.findElementByXPath("//android.widget.TextView[@text='winter heater']").click();
-//	Thread.sleep(3000);
-//	driver.findElementByXPath("//android.widget.TextView[@index='1']").click();
-//	Thread.sleep(3000);
-//	driver.findElementByXPath("//android.widget.TextView[@text='Add to cart']").click();
-//	driver.pressKeyCode(AndroidKeyCode.BACK);
-//	driver.findElementById("com.flipkart.android:id/cart_bg_icon").click();
-//	
-//	
-//	Thread.sleep(3000);
-//	String title = driver.findElement(By.xpath("//android.widget.TextView[@text='Aervinten Fan Heater for Room in Winter Noiseless Smart Room Heater Overheat Protector & Best for Child Safety Heat Air Blower || 1 Season Warranty Adjustable Fan Speed || Model- PL - M@rcury || Fan Room Heater ']")).getText();
-//    Assert.assertTrue(title.contains("Aervinten"));
-//    Thread.sleep(3000);
+	
 }
 }
